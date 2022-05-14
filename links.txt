@@ -1,0 +1,11 @@
+https://stackoverflow.com/questions/54030340/convert-a-uint8list-to-image-in-flutter-dart-ui
+https://stackoverflow.com/questions/51315442/use-ui-decodeimagefromlist-to-display-an-image-created-from-a-list-of-bytes/51316489#51316489
+https://stackoverflow.com/questions/ask
+https://tutorialmeta.com/question/flutter-the-argument-type-listint-cant-be-assigned-to-the-parameter-type-u
+
+
+image: MemoryImage(Uint8List.fromList(List<int> _recognitions), scale: 2),
+ image: MemoryImage(Uint8List.fromList(List<int>.from(_recognitions!))),
+ 
+ flutter code migration
+ 

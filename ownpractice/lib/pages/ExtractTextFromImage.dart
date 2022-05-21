@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -15,7 +16,7 @@ class ExtractTextFromImage extends StatelessWidget {
 }
 
 class ExtractText extends StatefulWidget {
-  const ExtractText({Key? key}) : super(key: key);
+  ExtractText({Key? key}) : super(key: key);
 
   @override
   State<ExtractText> createState() => _ExtractTextState();
@@ -26,6 +27,9 @@ class _ExtractTextState extends State<ExtractText> {
   String result = "";
   File? image;
   ImagePicker? imagePicker;
+  final FlutterTts flutterTts = FlutterTts();
+
+
 
   pickImageFromGallery() async {
     PickedFile? pickedFile =
@@ -69,16 +73,24 @@ class _ExtractTextState extends State<ExtractText> {
     });
   }
 
-
-
   @override
   void initState() {
     super.initState();
     imagePicker = ImagePicker();
   }
 
+
   @override
   Widget build(BuildContext context) {
+
+    //TextEditingController textEditingController = TextEditingController();
+    speak(String text) async{
+      await flutterTts.setLanguage("en-US");
+      await flutterTts.setPitch(1);
+      //print(await flutterTts.getVoices);
+      await flutterTts.speak(text);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Extract Text From Image'),
@@ -162,6 +174,22 @@ class _ExtractTextState extends State<ExtractText> {
                         ),
                       ), // end here
                     ),
+                  ),
+                  Positioned(
+                    width: 60,
+                      height: 60,
+                      left: 100.0,
+                      child: GestureDetector(
+                        onTap: ()=> speak(result),
+                        child: Container(
+                          child: Image.asset(
+                            "assets/images/Speaker-icon.png",
+                            color: null,
+                            fit: BoxFit.cover,
+                            colorBlendMode: BlendMode.dstATop,
+                          ),
+                        ),
+                      ),
                   ),
                 ],
               ),

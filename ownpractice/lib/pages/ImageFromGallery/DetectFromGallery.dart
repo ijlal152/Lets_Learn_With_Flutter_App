@@ -9,6 +9,8 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:tflite/tflite.dart';
 
+import '../../helper/transform.dart';
+
 const String mobile = "MobileNet";
 const String ssd = "SSD MobileNet";
 const String yolo = "Tiny YOLOv2";
@@ -402,7 +404,9 @@ class _MyAppState extends State<MyApp> {
         left: 0.0,
         width: size.width,
         child:
-            _image == null ? Text('No image selected.') : Image.file(_image!),
+            _image == null ? Text('No image selected.', style: TextStyle(
+              color: Colors.white,
+            ),) : Image.file(_image!),
       ));
     }
 
@@ -439,6 +443,110 @@ class _MyAppState extends State<MyApp> {
 
     return Scaffold(
       appBar: AppBar(
+        title: Text("Object Detection From Image"),
+        centerTitle: true,
+      ),
+      body: Container(
+        child: Stack(
+          fit: StackFit.expand,
+          alignment: Alignment.center,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.zero,
+              child: Container(
+                color: Color.fromARGB(255, 16, 39, 83),
+              ),
+            ),
+            Positioned(
+              left: 0.0,
+              top: 0.0,
+              right: null,
+              bottom: null,
+              width: 360.0,
+              height: 140.0,
+              child: Container(
+                width: 360.0,
+                height: 140.0,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.zero,
+                  child: Image.asset(
+                    "assets/images/fromgallery.png",
+                    color: null,
+                    fit: BoxFit.cover,
+                    width: 360.0,
+                    height: 194.0,
+                    colorBlendMode: BlendMode.dstATop,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              width: 360.0,
+              height: 140.0,
+              top: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  ElevatedButton(onPressed: (){onSelect(mobile);}, child: const Text("MobileNet")),
+                  ElevatedButton(onPressed: (){onSelect(ssd);}, child: const Text("SSD MobileNet")),
+                  ElevatedButton(onPressed: (){onSelect(yolo);}, child: const Text("Yolo V2")),
+                ],
+              ),
+            ),
+
+            Positioned(
+              width: 340,
+              height: 390.0,
+              top: 203,
+              child: Stack(
+                children: stackChildren,
+              ),
+            ),
+            
+            Positioned(
+              left: 265.0,
+              top: 605.0,
+              right: null,
+              bottom: null,
+              width: 60.0,
+              height: 60.0,
+              child: GestureDetector(
+                onTap: () => predictImagePicker(),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.zero,
+                  child: Image.asset(
+                    "assets/images/g2.png",
+                    color: null,
+                    fit: BoxFit.cover,
+                    colorBlendMode: BlendMode.dstATop,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              left: 30.0,
+              top: 600.0,
+              right: null,
+              bottom: null,
+              width: 65.0,
+              height: 60.0,
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.zero,
+                  child: Image.asset(
+                    "assets/images/pikachu.png",
+                    color: null,
+                    fit: BoxFit.cover,
+                    colorBlendMode: BlendMode.dstATop,
+                  ),
+                ),
+              ),
+            ),
+
+          ],
+        ),
+      ),
+      /*appBar: AppBar(
         title: const Text('Object Detection From Image'),
         actions: <Widget>[
           PopupMenuButton<String>(
@@ -478,7 +586,7 @@ class _MyAppState extends State<MyApp> {
         onPressed: predictImagePicker,
         tooltip: 'Pick Image',
         child: Icon(Icons.image),
-      ),
+      ),*/
     );
   }
 }

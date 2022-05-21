@@ -439,7 +439,7 @@ class _MyAppState extends State<MyApp> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('tflite example app'),
+        title: const Text('Object Detection From Image'),
         actions: <Widget>[
           PopupMenuButton<String>(
             onSelected: onSelect,

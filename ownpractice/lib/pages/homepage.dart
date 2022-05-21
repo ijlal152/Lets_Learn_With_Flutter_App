@@ -76,17 +76,20 @@ class HomeScreen extends StatelessWidget {
                                 bottom: null,
                                 width: 181.0,
                                 height: 260.0,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(14.0),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(14.0),
-                                    child: Image.asset(
-                                      "assets/images/c1.jpg",
-                                      color: null,
-                                      fit: BoxFit.cover,
-                                      //colorBlendMode: BlendMode.dstATop,
+                                child: GestureDetector(
+                                  onTap: ()=> Navigator.pushNamed(context, '/YoutubeApi'),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(14.0),
+                                      child: Image.asset(
+                                        "assets/images/c1.jpg",
+                                        color: null,
+                                        fit: BoxFit.cover,
+                                        //colorBlendMode: BlendMode.dstATop,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -98,21 +101,24 @@ class HomeScreen extends StatelessWidget {
                                 bottom: null,
                                 width: 181.0,
                                 height: 260.0,
-                                child: Container(
-                                  width: 181.0,
-                                  height: 260.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(14.0),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(14.0),
-                                    child: Image.asset(
-                                      "assets/images/c2.jpg",
-                                      color: null,
-                                      fit: BoxFit.cover,
-                                      width: 181.0,
-                                      height: 260.0,
-                                      colorBlendMode: BlendMode.dstATop,
+                                child: GestureDetector(
+                                  onTap: ()=> Navigator.pushNamed(context, '/YoutubeApi2'),
+                                  child: Container(
+                                    width: 181.0,
+                                    height: 260.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(14.0),
+                                      child: Image.asset(
+                                        "assets/images/c2.jpg",
+                                        color: null,
+                                        fit: BoxFit.cover,
+                                        width: 181.0,
+                                        height: 260.0,
+                                        colorBlendMode: BlendMode.dstATop,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -124,21 +130,24 @@ class HomeScreen extends StatelessWidget {
                                 bottom: null,
                                 width: 181.0,
                                 height: 260.0,
-                                child: Container(
-                                  width: 181.0,
-                                  height: 260.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(14.0),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(14.0),
-                                    child: Image.asset(
-                                      "assets/images/c3.jpg",
-                                      color: null,
-                                      fit: BoxFit.cover,
-                                      width: 181.0,
-                                      height: 260.0,
-                                      colorBlendMode: BlendMode.dstATop,
+                                child: GestureDetector(
+                                  onTap: ()=> Navigator.pushNamed(context, '/YoutubeApi3'),
+                                  child: Container(
+                                    width: 181.0,
+                                    height: 260.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(14.0),
+                                      child: Image.asset(
+                                        "assets/images/c3.jpg",
+                                        color: null,
+                                        fit: BoxFit.cover,
+                                        width: 181.0,
+                                        height: 260.0,
+                                        colorBlendMode: BlendMode.dstATop,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -150,21 +159,24 @@ class HomeScreen extends StatelessWidget {
                                 bottom: null,
                                 width: 181.0,
                                 height: 260.0,
-                                child: Container(
-                                  width: 181.0,
-                                  height: 260.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(14.0),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(14.0),
-                                    child: Image.asset(
-                                      "assets/images/c4.jpg",
-                                      color: null,
-                                      fit: BoxFit.cover,
-                                      width: 181.0,
-                                      height: 260.0,
-                                      colorBlendMode: BlendMode.dstATop,
+                                child: GestureDetector(
+                                  onTap: ()=> Navigator.pushNamed(context, '/YoutubeApi4'),
+                                  child: Container(
+                                    width: 181.0,
+                                    height: 260.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(14.0),
+                                      child: Image.asset(
+                                        "assets/images/c4.jpg",
+                                        color: null,
+                                        fit: BoxFit.cover,
+                                        width: 181.0,
+                                        height: 260.0,
+                                        colorBlendMode: BlendMode.dstATop,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -694,7 +706,7 @@ class HomeScreen extends StatelessWidget {
                                       width: 323.0,
                                       height: 76.0,
                                       child: GestureDetector(
-                                        onTap: () => Navigator.pushNamed(context, 'ExtractTextFromImage'),
+                                        onTap: () => Navigator.pushNamed(context, '/ExtractTextFromImage'),
                                         child: Container(
                                           width: 310.0,
                                           height: 76.0,

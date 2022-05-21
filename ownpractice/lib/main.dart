@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:ownpractice/pages/ExtractTextFromImage.dart';
 import 'package:ownpractice/pages/ImageFromGallery/DetectFromGallery.dart';
 import 'package:ownpractice/pages/RealTimeObjectDetection/main_realtime.dart';
+import 'package:ownpractice/pages/TextToSpeech.dart';
 import 'package:ownpractice/pages/homepage.dart';
+import 'package:ownpractice/pages/youtube_api1.dart';
+import 'package:ownpractice/pages/youtube_api2.dart';
+import 'package:ownpractice/pages/youtube_api3.dart';
+import 'package:ownpractice/pages/youtube_api4.dart';
 void main(){
   runApp(MaterialApp(
     home: FirstScreen(),
@@ -9,8 +15,12 @@ void main(){
       '/HomeScreen': (context) => HomeScreen(),
       '/RealTime' : (context) => RealTime(),
       '/FromGallery' : (context) => Gallery(),
-      //'/TextToSpeech' : (context) => Text_to_Speech(),
-      //'ExtractTextFromImage' : (context) => ExtractTextFromImage(),
+      '/TextToSpeech' : (context) => TxtToSpeech(),
+      '/ExtractTextFromImage' : (context) => ExtractTextFromImage(),
+      '/YoutubeApi' : (context) => YoutubeApiApp(),
+      '/YoutubeApi2' : (context) => YoutubeApiApp_two(),
+      '/YoutubeApi3' : (context) => YoutubeApiAppThree(),
+      '/YoutubeApi4': (context) => YoutubeApiAppFour(),
     },
   ));
 }

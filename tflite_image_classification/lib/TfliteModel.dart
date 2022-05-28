@@ -4,9 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class TfliteModel extends StatefulWidget {
-  const TfliteModel({Key? key}) : super(key: key);
+  //const TfliteModel({Key? key}) : super(key: key);
+
+  final FlutterTts flutterTts = FlutterTts();
 
   @override
   _TfliteModelState createState() => _TfliteModelState();
@@ -17,6 +20,9 @@ class _TfliteModelState extends State<TfliteModel> {
   late File _image;
   late List _results;
   bool imageSelect=false;
+
+  final FlutterTts flutterTts = FlutterTts();
+
   @override
   void initState()
   {
@@ -48,6 +54,13 @@ class _TfliteModelState extends State<TfliteModel> {
   }
   @override
   Widget build(BuildContext context) {
+    TextEditingController textEditingController = TextEditingController();
+    speak(String text) async{
+      await flutterTts.setLanguage("en-US");
+      await flutterTts.setPitch(1);
+      //print(await flutterTts.getVoices);
+      await flutterTts.speak(text);
+    }
     return Scaffold(
       appBar: AppBar(
         title: const Text("Image Classification"),
@@ -58,6 +71,7 @@ class _TfliteModelState extends State<TfliteModel> {
         margin: const EdgeInsets.all(10),
         child: Image.file(_image),
       ):Container(
+        //height: 600,
         margin: const EdgeInsets.all(10),
             child: const Opacity(
               opacity: 0.8,
@@ -72,19 +86,42 @@ class _TfliteModelState extends State<TfliteModel> {
                 return Card(
                   child: Container(
                     margin: EdgeInsets.all(10),
-                    child: Text(
-                      "${result['label']} - ${result['confidence'].toStringAsFixed(2)}",
-                      style: const TextStyle(color: Colors.red,
-                      fontSize: 20),
-                    ),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: <Widget>[
+                        Positioned(
+                        child: Text(
+                          "${result['label']}",
+                          style: const TextStyle(color: Colors.red,
+                          fontSize: 20),
+                        ),
+                      ),
+                      Positioned(
+                        //top: 10,
+                        width: 35,
+                        height: 35,
+                        child: GestureDetector(
+                          onTap: () => speak(result['label']),
+                          child: Container(
+                            child: Image.asset(
+                              "assets/Speaker-icon.png",
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        ),
+                      ],
+
+                    ),  
                   ),
                 );
               }).toList():[],
-
             ),
           )
         ],
       ),
+
+      
       floatingActionButton: FloatingActionButton(
         onPressed: pickImage,
         tooltip: "Pick Image",

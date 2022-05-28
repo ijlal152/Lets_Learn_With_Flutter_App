@@ -1,4 +1,4 @@
-package com.example.tflite_image_classification
+package com.hussain.test
 
 import io.flutter.embedding.android.FlutterActivity
 

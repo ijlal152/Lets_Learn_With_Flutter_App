@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:ownpractice/helper/transform.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -25,7 +24,7 @@ class TxtToSpeech extends StatelessWidget {
     speak(String text) async{
       await flutterTts.setLanguage("en-US");
       await flutterTts.setPitch(1);
-      print(await flutterTts.getVoices);
+      //print(await flutterTts.getVoices);
       await flutterTts.speak(text);
     }
 

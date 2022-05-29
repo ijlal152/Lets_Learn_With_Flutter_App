@@ -8,14 +8,14 @@ void main() {
 class YoutubeApiApp extends StatelessWidget {
   const YoutubeApiApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  // This widget is the root of our application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Youtube Video',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        //visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: YoutubeVideo(),
     );

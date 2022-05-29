@@ -83,41 +83,50 @@ class _TfliteModelState extends State<TfliteModel> {
           SingleChildScrollView(
             child: Column(
               children: (imageSelect)?_results.map((result) {
-                return Card(
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: <Widget>[
-                        Positioned(
-                        child: Text(
-                          "${result['label']}",
-                          style: const TextStyle(color: Colors.red,
-                          fontSize: 20),
-                        ),
-                      ),
-                      Positioned(
-                        //top: 10,
-                        width: 35,
-                        height: 35,
-                        child: GestureDetector(
-                          onTap: () => speak(result['label']),
-                          child: Container(
-                            child: Image.asset(
-                              "assets/Speaker-icon.png",
-                              fit: BoxFit.cover,
+                return Stack(
+                  alignment: Alignment.topCenter,
+                  children: <Widget>[
+                    Positioned(
+                      child: Card(
+                      child: Container(
+                      margin: EdgeInsets.all(10),
+                      child: Stack(
+                        //alignment: Alignment.center,
+                        children: <Widget>[
+                          Text(
+                            "${result['label']}",
+                            style: const TextStyle(color: Colors.red,
+                            fontSize: 20,
+                            height: 3,
                             ),
                           ),
-                        ),
-                        ),
-                      ],
-
-                    ),  
+                        ],
+                      ),  
+                    ),
                   ),
+                      ),
+                      Positioned(
+                          top: 4,
+                          width: 40,
+                          height: 40,
+                          child: GestureDetector(
+                            onTap: () => speak(result['label']),
+                            child: Container(
+                              child: Image.asset(
+                                "assets/Speaker-icon.png",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          ),
+                      
+                      
+                  ],
                 );
+                
               }).toList():[],
             ),
-          )
+          ),
         ],
       ),
 

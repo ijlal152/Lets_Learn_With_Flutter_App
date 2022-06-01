@@ -1,7 +1,9 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:ownpractice/pages/ExtractTextFromImage.dart';
 import 'package:ownpractice/pages/ImageFromGallery/DetectFromGallery.dart';
-import 'package:ownpractice/pages/RealTimeObjectDetection/main_realtime.dart';
+import 'package:ownpractice/pages/RealTime/objectdetection.dart';
+//import 'package:ownpractice/pages/RealTimeObjectDetection/main_realtime.dart';
 import 'package:ownpractice/pages/TextToSpeech.dart';
 import 'package:ownpractice/pages/homepage.dart';
 import 'package:ownpractice/pages/youtube_api1.dart';
@@ -10,12 +12,15 @@ import 'package:ownpractice/pages/youtube_api3.dart';
 import 'package:ownpractice/pages/youtube_api4.dart';
 import 'package:particles_flutter/particles_flutter.dart';
 
-void main(){
+//List<CameraDescription> cameras =0 as List<CameraDescription>;
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  //cameras = await availableCameras();
   runApp(MaterialApp(
     home: FirstScreen(),
     routes: {
       '/HomeScreen': (context) => HomeScreen(),
-      '/RealTime' : (context) => RealTime(),
+      '/RealTime' : (context) => ObjectDetectInRealTime(),
       '/FromGallery' : (context) => Gallery(),
       '/TextToSpeech' : (context) => TxtToSpeech(),
       '/ExtractTextFromImage' : (context) => ExtractTextFromImage(),
@@ -26,6 +31,8 @@ void main(){
     },
   ));
 }
+
+
 
 
 class FirstScreen extends StatefulWidget {
